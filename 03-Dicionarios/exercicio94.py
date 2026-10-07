@@ -24,7 +24,16 @@ print('-='*25)
 print(f'=>   Foram cadastradas {len(geral)} pessoas')
 
 for value in geral:
-    cont += value['idade']
-    
+    cont += value.get('idade', 'Não encontrada.')    
 total = cont / len(geral)
-print(f'=>   A média de idade é de {total:.2f}')
+print(f'=>   A média de idade é de {total:.2f} anos')
+print(f'=>   As mulheres cadastradas foram: ', end='')
+
+for value in geral:
+    if value.get('sexo', 'Não encontrado') == 'F':
+        print(value.get('nome', 'Não encontrado'),)
+
+print(f'=>   As pessoas que tem a idade acima da média: ')
+for value in geral:
+    if value.get('idade', 'Não encontrado') >= total:
+        print(value)
