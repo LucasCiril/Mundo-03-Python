@@ -7,10 +7,24 @@
 # D) Uma lista de pessoas com idade acima da média
 
 geral = []
+pss = {}
+cont = 0
 
-number = dict()
-number['nome'] = str(input('Nome: '))
-number['idade'] = int(input('idade: '))
-geral.append(number)
+while True:
+    pss['nome'] = str(input('Nome: '))
+    pss['sexo'] = str(input('Sexo [M/F]: ')).strip().upper()
+    while pss['sexo'] not in 'MF':
+        pss['sexo'] = str(input('ERRO! Escolha [M/F]: ')).strip().upper()
+    pss['idade'] = int(input('Idade: '))
+    geral.append(pss.copy())
+    flag = str(input('Quer continuar? [S/N]: ')).strip().upper()
+    if flag in 'N':
+        break
+print('-='*25)
+print(f'=>   Foram cadastradas {len(geral)} pessoas')
 
-print(f'{number.keys()}')
+for value in geral:
+    cont += value['idade']
+    
+total = cont / len(geral)
+print(f'=>   A média de idade é de {total:.2f}')
