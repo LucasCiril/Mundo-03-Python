@@ -31,7 +31,7 @@ print(f'=>   As mulheres cadastradas foram: ', end='')
 
 for value in geral:
     if value.get('sexo', 'Não encontrado') == 'F':
-        print(value.get('nome', 'Não encontrado'),)
+        print(value.get('nome', 'Não encontrado'))
 
 print(f'=>   As pessoas que tem a idade acima da média: ')
 for value in geral:
